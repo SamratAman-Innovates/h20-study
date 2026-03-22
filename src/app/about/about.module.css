@@ -1,0 +1,63 @@
+.page {
+  padding: 4rem 1rem;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  color: var(--primary-color);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.textSection h2 {
+  font-size: 2rem;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.textSection p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.imageSection {
+  position: relative;
+}
+
+.aboutImg {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+}
+
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
