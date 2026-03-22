@@ -40,7 +40,7 @@ export default function Home() {
           </div>
           <div className={styles.heroImage}>
             <div className={styles.floatingCard}>✨ Free Tests Inside!</div>
-            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=600" alt="Students studying" className={styles.heroImg} />
+            <img src="/owner.jpg" alt="H2O Study Founder and Lead Teacher" className={styles.heroImg} />
           </div>
         </div>
       </section>
