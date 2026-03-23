@@ -1,22 +1,20 @@
 import { streamText } from 'ai';
-import { createOpenAI } from '@ai-sdk/openai';
+import { groq } from '@ai-sdk/groq';
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
-
-// Create a custom OpenAI provider instance pointing to Pollinations (a free, public API wrapper)
-// This doesn't require a real API key!
-const pollinationsProvider = createOpenAI({
-  baseURL: 'https://text.pollinations.ai/openai',
-  apiKey: 'public-key-not-needed', // Pollinations ignores the key
-});
 
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
 
+    const apiKey = process.env.GROQ_API_KEY;
+    if (!apiKey) {
+      return new Response('GROQ_API_KEY is not set. Please add it to your .env.local file.', { status: 500 });
+    }
+
     const result = await streamText({
-      model: pollinationsProvider('openai'), // Pollinations defaults to a good model
+      model: groq('llama3-8b-8192'), // Lightning fast Groq model
       messages,
       system: `You are a helpful, encouraging, and knowledgeable teacher for the H2O Study platform. 
 Your goal is to help students learn by providing clear explanations, guiding them to find answers rather than just giving them away, and maintaining a positive, educational tone. 
