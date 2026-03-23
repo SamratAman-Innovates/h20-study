@@ -5,12 +5,45 @@
 }
 
 .hero {
-  padding: 6rem 0;
-  background: var(--gradient-light);
+  padding: 8rem 0 6rem 0;
+  background: linear-gradient(180deg, var(--gradient-light) 0%, transparent 100%);
+  position: relative;
   overflow: hidden;
 }
 
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: var(--primary-color);
+  opacity: 0.12;
+  filter: blur(120px);
+  border-radius: 50%;
+  z-index: 0;
+  animation: float 10s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: var(--secondary-color);
+  opacity: 0.12;
+  filter: blur(100px);
+  border-radius: 50%;
+  z-index: 0;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
 .heroContainer {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 4rem;
@@ -45,6 +78,7 @@
   color: var(--primary-color);
   background: var(--gradient-primary);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -154,6 +188,8 @@
 
 .blueBg {
   background: var(--gradient-primary);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 2px, transparent 2px), var(--gradient-primary);
+  background-size: 32px 32px, 100% 100%;
   color: white;
 }
 

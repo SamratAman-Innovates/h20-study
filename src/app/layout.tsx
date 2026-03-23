@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import Chatbot from "@/components/Chatbot/Chatbot";
 
 export default function RootLayout({
   children,
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Navbar />
         <main className="main-content" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>{children}</main>
         <Footer />
+        <Chatbot />
       </body>
     </html>
   );
