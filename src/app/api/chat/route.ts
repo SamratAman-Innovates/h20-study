@@ -15,7 +15,7 @@ export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
 
-    const result = streamText({
+    const result = await streamText({
       model: pollinationsProvider('gpt-4o'), // Pollinations defaults to a good model
       messages,
       system: `You are a helpful, encouraging, and knowledgeable teacher for the H2O Study platform. 
